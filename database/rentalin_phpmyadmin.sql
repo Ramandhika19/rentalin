@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS vehicles (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   type ENUM('motor','mobil') NOT NULL,
-  brand VARCHAR(100) NULL,
+  brand VARCHAR(255) NULL,
   plate_number VARCHAR(255) NOT NULL,
   description TEXT NULL,
   price_per_day DECIMAL(12,2) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS vehicles (
   created_at TIMESTAMP NULL DEFAULT NULL,
   updated_at TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (id),
-  UNIQUE KEY vehicles_plate_number_unique (plate_number),
+  UNIQUE KEY vehicles_plate_number_unique (plate_number)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS bookings (
