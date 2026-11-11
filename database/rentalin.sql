@@ -121,12 +121,12 @@ CREATE TABLE `vehicles` (
 --
 
 INSERT INTO `vehicles` (`id`, `name`, `brand`, `type`, `year`, `plate_number`, `price_per_day`, `description`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Honda Vario 160', 'Honda', 'motor', 2023, 'DK 1234 ABC', '85000.00', 'Motor matic untuk mobilitas harian.', NULL, 'available', '2026-11-11 23:05:51', '2026-11-11 23:05:51'),
-(2, 'Yamaha NMAX', 'Yamaha', 'motor', 2022, 'DK 2345 DEF', '100000.00', 'Motor nyaman untuk perjalanan.', NULL, 'available', '2026-11-11 23:05:51', '2026-11-11 23:05:51'),
-(3, 'Toyota Avanza', 'Toyota', 'mobil', 2021, 'DK 3456 GHI', '350000.00', 'Mobil keluarga.', NULL, 'available', '2026-11-11 23:05:51', '2026-11-11 23:05:51'),
-(4, 'Honda Brio', 'Honda', 'mobil', 2022, 'DK 4567 JKL', '300000.00', 'Mobil city car nyaman dan irit bahan bakar.', NULL, 'available', '2026-11-11 23:15:52', '2026-11-11 23:15:52'),
-(5, 'Toyota Innova Reborn', 'Toyota', 'mobil', 2021, 'DK 5678 MNO', '500000.00', 'Mobil keluarga dengan kabin luas.', NULL, 'available', '2026-11-11 23:15:52', '2026-11-11 23:15:52'),
-(6, 'Honda Scoopy', 'Honda', 'motor', 2023, 'DK 6789 PQR', '75000.00', 'Motor matic bergaya retro untuk perjalanan harian.', NULL, 'available', '2026-11-11 23:15:52', '2026-11-11 23:15:52');
+(1, 'Honda Vario 160', 'Honda', 'motor', 2023, 'DK 1234 ABC', '85000.00', 'Motor matic untuk mobilitas harian.', 'https://radartasik.disway.id/upload/ad66a4d53a26e0cec0f495802e4215ea.jpg', 'available', '2026-11-11 23:05:51', '2026-11-11 23:05:51'),
+(2, 'Yamaha NMAX', 'Yamaha', 'motor', 2022, 'DK 2345 DEF', '100000.00', 'Motor nyaman untuk perjalanan.', 'https://www.yamaha-motor.co.jp/mc/lineup/nmax/img/nmax_price_2022.jpg', 'available', '2026-11-11 23:05:51', '2026-11-11 23:05:51'),
+(3, 'Toyota Avanza', 'Toyota', 'mobil', 2021, 'DK 3456 GHI', '350000.00', 'Mobil keluarga.', 'https://www.autopediame.com/storage/images/Toyota/%D8%AA%D9%88%D9%8A%D9%88%D8%AA%D8%A7%20%D8%A7%D9%81%D8%A7%D9%86%D8%B2%D8%A7%201.jpg', 'available', '2026-11-11 23:05:51', '2026-11-11 23:05:51'),
+(4, 'Honda Brio', 'Honda', 'mobil', 2022, 'DK 4567 JKL', '300000.00', 'Mobil city car nyaman dan irit bahan bakar.', 'https://img3.icarcdn.com/45417861/gallery_mobil-bekas-carmudi-honda-brio-satya-e-hatchback-indonesia_f7cb6773-a6f7-4362-9d4d-635b26ecaf33.jpeg?smia=xTM', 'available', '2026-11-11 23:15:52', '2026-11-11 23:15:52'),
+(5, 'Toyota Innova Reborn', 'Toyota', 'mobil', 2021, 'DK 5678 MNO', '500000.00', 'Mobil keluarga dengan kabin luas.', 'https://thumb.katadata.co.id/frontend/thumbnail/2025/10/14/zigi-68ee4a67b5553-innova-reborn_910_512.jpg', 'available', '2026-11-11 23:15:52', '2026-11-11 23:15:52'),
+(6, 'Honda Scoopy', 'Honda', 'motor', 2023, 'DK 6789 PQR', '75000.00', 'Motor matic bergaya retro untuk perjalanan harian.', 'https://media.doanhnghiepvn.vn/Images/Uploaded/Share/2022/11/06/a39honda-scoopy-2023.jpg', 'available', '2026-11-11 23:15:52', '2026-11-11 23:15:52');
 
 --
 -- Indexes for dumped tables
