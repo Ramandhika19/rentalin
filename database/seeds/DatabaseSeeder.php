@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\\Database\\Seeder;
-use App\\Models\\User;
-use App\\Models\\Vehicle;
-use Illuminate\\Support\\Facades\\Hash;
+use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Vehicle;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
