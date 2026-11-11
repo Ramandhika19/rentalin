@@ -9,8 +9,10 @@ Aplikasi rental mobil dan motor: registrasi/login, role user/admin, katalog kend
 
 ## Instalasi XAMPP
 1. Clone repo ke `htdocs/rentalin`.
-2. Buat database `rentalin` di phpMyAdmin lalu import `database/rentalin_phpmyadmin.sql`.
+2. Buat database `rentalin` di phpMyAdmin lalu import `database/rentalin.sql`.
 3. Salin `.env.example` menjadi `.env` dan sesuaikan konfigurasi database.
+
+Untuk database yang sudah terlanjur diimport, jalankan `database/update_vehicle_images.sql` melalui phpMyAdmin agar foto kendaraan diperbarui tanpa menghapus data. File SQL utama juga sudah berisi URL foto khusus untuk keenam kendaraan contoh.
 4. Jalankan `composer install` dan `php artisan key:generate`.
 5. Akses `http://localhost/rentalin/public`.
 
