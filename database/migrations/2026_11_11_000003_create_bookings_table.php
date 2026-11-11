@@ -21,6 +21,8 @@ class CreateBookingsTable extends Migration
             $table->enum('status', ['pending', 'confirmed', 'ongoing', 'completed', 'cancelled'])->default('pending');
             $table->text('notes')->nullable();
             $table->timestamps();
+            $table->index(['vehicle_id', 'start_date', 'end_date'], 'bookings_vehicle_dates_index');
+            $table->index('user_id', 'bookings_user_id_index');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('vehicle_id')->references('id')->on('vehicles')->onDelete('restrict');
         });
