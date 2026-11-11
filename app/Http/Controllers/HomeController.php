@@ -1,9 +1,9 @@
 <?php
 
-namespace App\\Http\\Controllers;
+namespace App\Http\Controllers;
 
-use App\\Models\\Vehicle;
-use Illuminate\\Http\\Request;
+use App\Models\Vehicle;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
