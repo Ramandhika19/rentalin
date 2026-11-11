@@ -1,8 +1,8 @@
 <?php
 
-namespace App\\Providers;
+namespace App\Providers;
 
-use Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider as ServiceProvider;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
 {
