@@ -4,14 +4,16 @@ Aplikasi rental kendaraan berbasis Laravel 12, PHP 8.2–8.4, MySQL/MariaDB, dan
 
 ## Instalasi di Windows / XAMPP
 1. Letakkan folder project di `C:\\xampp\\htdocs\\rentalin`.
-2. Jalankan Apache dan MySQL dari XAMPP.
+2. Jalankan Apache dan MySQL dari XAMPP. Pastikan CMD memakai PHP XAMPP: jalankan `C:\\xampp\\php\\php.exe -v` dan pastikan versinya 8.4.27. Jika perintah `php -v` menunjukkan versi lain, tambahkan `C:\\xampp\\php` ke PATH Windows atau gunakan path lengkap `C:\\xampp\\php\\php.exe`.
 3. Buat database `rentalin` dengan collation `utf8mb4_unicode_ci` di phpMyAdmin.
-4. Buka CMD pada folder project, jalankan `composer install`.
+4. Buka CMD pada folder project, jalankan `composer install`. Pastikan Composer juga menggunakan PHP XAMPP 8.4.27.
 5. Salin `.env.example` menjadi `.env`; pastikan DB_CONNECTION=mysql, DB_HOST=127.0.0.1, DB_PORT=3306, DB_DATABASE=rentalin, DB_USERNAME=root dan DB_PASSWORD kosong (jika MySQL XAMPP tidak memakai password).
 6. Jalankan `php artisan key:generate`.
 7. Jalankan `php artisan migrate --seed`.
 8. Jalankan `php artisan storage:link`.
 9. Buka `http://localhost/rentalin/public`.
+
+Jika muncul error ekstensi PHP, buka `C:\\xampp\\php\\php.ini`, aktifkan `pdo_mysql`, `mbstring`, `openssl`, `fileinfo`, `curl`, `xml`, dan `zip`, lalu restart Apache.
 
 Alternatif: jalankan `php artisan serve` dari CMD.
 
