@@ -1,11 +1,11 @@
 <?php
 
-namespace App\\Http\\Controllers;
+namespace App\Http\Controllers;
 
-use App\\Models\\Booking;
-use App\\Models\\Vehicle;
-use Illuminate\\Http\\Request;
-use Carbon\\Carbon;
+use App\Models\Booking;
+use App\Models\Vehicle;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class BookingController extends Controller
 {
