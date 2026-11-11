@@ -1,0 +1,21 @@
+<IfModule mod_negotiation.c>
+    Options -MultiViews -Indexes
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Teruskan Authorization header untuk kebutuhan autentikasi.
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Hapus trailing slash jika bukan direktori fisik.
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{THE_REQUEST} \s/+(.+?)/+[?\s]
+    RewriteRule ^ %1 [L,R=301]
+
+    # Arahkan semua request yang bukan file/folder fisik ke Laravel.
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
