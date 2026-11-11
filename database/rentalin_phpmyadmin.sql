@@ -32,7 +32,6 @@ CREATE TABLE IF NOT EXISTS vehicles (
   updated_at TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY vehicles_plate_number_unique (plate_number),
-  KEY vehicles_type_status_index (type,status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS bookings (
@@ -72,6 +71,6 @@ INSERT INTO migrations (migration,batch)
 SELECT '2026_11_11_000003_create_bookings_table',1 WHERE NOT EXISTS (SELECT 1 FROM migrations WHERE migration='2026_11_11_000003_create_bookings_table');
 
 -- Sample vehicles; admin account is created by: php artisan db:seed
-INSERT INTO vehicles (name,type,brand,plate_number,description,price_per_day,status,created_at,updated_at) VALUES
+INSERT IGNORE INTO vehicles (name,type,brand,plate_number,description,price_per_day,status,created_at,updated_at) VALUES
 ('Honda Vario 160','motor','Honda','DK 1001 AA','Motor matic nyaman untuk perjalanan dalam kota.',120000,'available',NOW(),NOW()),
 ('Toyota Avanza','mobil','Toyota','DK 1002 AA','Mobil keluarga untuk perjalanan bersama.',450000,'available',NOW(),NOW());
