@@ -3,14 +3,7 @@
 CREATE DATABASE IF NOT EXISTS rentalin CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE rentalin;
 
-SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE IF EXISTS bookings;
-DROP TABLE IF EXISTS vehicles;
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS migrations;
-SET FOREIGN_KEY_CHECKS = 1;
-
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
@@ -25,7 +18,7 @@ CREATE TABLE users (
   UNIQUE KEY users_email_unique (email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE vehicles (
+CREATE TABLE IF NOT EXISTS vehicles (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   type ENUM('motor','mobil') NOT NULL,
@@ -42,7 +35,7 @@ CREATE TABLE vehicles (
   KEY vehicles_type_status_index (type,status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE bookings (
+CREATE TABLE IF NOT EXISTS bookings (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   user_id BIGINT UNSIGNED NOT NULL,
   vehicle_id BIGINT UNSIGNED NOT NULL,
@@ -64,17 +57,19 @@ CREATE TABLE bookings (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Laravel migration repository: marks these matching migration files as already run.
-CREATE TABLE migrations (
+CREATE TABLE IF NOT EXISTS migrations (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   migration VARCHAR(255) NOT NULL,
   batch INT NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO migrations (migration,batch) VALUES
-('2026_11_11_000001_create_users_table',1),
-('2026_11_11_000002_create_vehicles_table',1),
-('2026_11_11_000003_create_bookings_table',1);
+INSERT INTO migrations (migration,batch)
+SELECT '2026_11_11_000001_create_users_table',1 WHERE NOT EXISTS (SELECT 1 FROM migrations WHERE migration='2026_11_11_000001_create_users_table');
+INSERT INTO migrations (migration,batch)
+SELECT '2026_11_11_000002_create_vehicles_table',1 WHERE NOT EXISTS (SELECT 1 FROM migrations WHERE migration='2026_11_11_000002_create_vehicles_table');
+INSERT INTO migrations (migration,batch)
+SELECT '2026_11_11_000003_create_bookings_table',1 WHERE NOT EXISTS (SELECT 1 FROM migrations WHERE migration='2026_11_11_000003_create_bookings_table');
 
 -- Sample vehicles; admin account is created by: php artisan db:seed
 INSERT INTO vehicles (name,type,brand,plate_number,description,price_per_day,status,created_at,updated_at) VALUES
