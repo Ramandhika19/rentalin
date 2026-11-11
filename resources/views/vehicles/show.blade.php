@@ -53,7 +53,7 @@
                 <div class="alert alert-secondary">Kendaraan ini sedang tidak tersedia untuk dipesan.</div>
             @else
                 @auth
-                    <form method="POST" action="{{ route('vehicle.booking', $vehicle->id) }}">
+                    <form method="POST" action="{{ route('booking.store', $vehicle->id) }}">
                         @csrf
                         <label>Tanggal mulai sewa</label><input type="date" name="start_date" min="{{ date('Y-m-d') }}" class="form-control mb-3" required>
                         <label>Tanggal selesai sewa</label><input type="date" name="end_date" min="{{ date('Y-m-d') }}" class="form-control mb-3" required>
