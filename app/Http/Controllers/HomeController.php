@@ -9,11 +9,15 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $vehicles = Vehicle::query()->where('status','available')
-            ->when($request->type, fn($q) => $q->where('type',$request->type))
-            ->when($request->search, fn($q) => $q->where('name','like','%'.$request->search.'%'))
-            ->latest()->paginate(9);
+        $query = Vehicle::where('status', 'available');
+        if ($request->filled('type')) $query->where('type', $request->type);
+        if ($request->filled('search')) $query->where('name', 'like', '%'.$request->search.'%');
+        $vehicles = $query->latest()->paginate(9);
         return view('home', compact('vehicles'));
     }
-    public function show(Vehicle $vehicle) { return view('vehicles.show', compact('vehicle')); }
+
+    public function show(Vehicle $vehicle)
+    {
+        return view('vehicles.show', compact('vehicle'));
+    }
 }

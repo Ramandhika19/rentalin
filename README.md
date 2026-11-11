@@ -1,26 +1,43 @@
-# Rentalin — Sistem Rental Motor & Mobil
+# Rentalin — Sistem Rental Motor & Mobil (Laravel 6.20)
 
-Aplikasi rental kendaraan berbasis Laravel 12, PHP 8.2–8.4, MySQL/MariaDB, dan Blade.
+Project pada branch ini disiapkan untuk **XAMPP PHP 7.2.28** dengan **Laravel 6.20.x**. Branch `main` tetap menggunakan versi awal Laravel 12.
 
-## Instalasi di Windows / XAMPP
-1. Letakkan folder project di `C:\\xampp\\htdocs\\rentalin`.
-2. Jalankan Apache dan MySQL dari XAMPP. Pastikan CMD memakai PHP XAMPP: jalankan `C:\\xampp\\php\\php.exe -v` dan pastikan versinya 8.4.27. Jika perintah `php -v` menunjukkan versi lain, tambahkan `C:\\xampp\\php` ke PATH Windows atau gunakan path lengkap `C:\\xampp\\php\\php.exe`.
-3. Buat database `rentalin` dengan collation `utf8mb4_unicode_ci` di phpMyAdmin.
-4. Buka CMD pada folder project, jalankan `composer install`. Pastikan Composer juga menggunakan PHP XAMPP 8.4.27.
-5. Salin `.env.example` menjadi `.env`; pastikan DB_CONNECTION=mysql, DB_HOST=127.0.0.1, DB_PORT=3306, DB_DATABASE=rentalin, DB_USERNAME=root dan DB_PASSWORD kosong (jika MySQL XAMPP tidak memakai password).
-6. Jalankan `php artisan key:generate`.
-7. Jalankan `php artisan migrate --seed`.
-8. Jalankan `php artisan storage:link`.
-9. Buka `http://localhost/rentalin/public`.
+## Persyaratan
 
-Jika muncul error ekstensi PHP, buka `C:\\xampp\\php\\php.ini`, aktifkan `pdo_mysql`, `mbstring`, `openssl`, `fileinfo`, `curl`, `xml`, dan `zip`, lalu restart Apache.
+- XAMPP dengan PHP 7.2.28
+- Apache dan MySQL aktif
+- Composer 2.2 LTS (gunakan Composer yang kompatibel dengan PHP 7.2)
+- Ekstensi PHP: OpenSSL, PDO, Mbstring, Tokenizer, XML, Ctype, JSON, BCMath, Fileinfo
 
-Alternatif: jalankan `php artisan serve` dari CMD.
+## Instalasi
 
-## Impor phpMyAdmin
-Impor file `database/rentalin_phpmyadmin.sql` melalui menu Import. SQL tersebut membuat tabel dan mencatat tiga migration aplikasi. Setelah impor, jalankan `php artisan db:seed` saja; jangan jalankan `php artisan migrate` lagi pada database yang sudah diimpor.
+1. Clone/download branch `xampp-php72-laravel620` ke `C:\xampp\htdocs\rentalin`.
+2. Buka CMD di folder project dan jalankan `C:\xampp\php\php.exe -v` untuk memastikan PHP yang dipakai adalah 7.2.28.
+3. Jalankan `composer install`. Jika Composer memakai PHP lain, jalankan Composer menggunakan PHP XAMPP.
+4. Salin `.env.example` menjadi `.env`.
+5. Buat database bernama `rentalin` melalui phpMyAdmin dengan collation `utf8mb4_unicode_ci`.
+6. Import file `database/rentalin_phpmyadmin.sql` ke database tersebut.
+7. Jalankan:
+   ```bash
+   php artisan key:generate
+   php artisan db:seed
+   php artisan storage:link
+   ```
+8. Buka `http://localhost/rentalin/public`.
 
-## Akun awal
-Admin: `admin@rentalin.test` / `password`. Ganti password sebelum aplikasi dipublikasikan.
+Atur koneksi database pada `.env` jika username/password MySQL berbeda dari konfigurasi XAMPP default.
 
-Fitur awal: katalog kendaraan, registrasi/login, pemesanan motor/mobil, pembayaran tunai atau transfer manual, panel admin kendaraan dan status pesanan.
+## Alternatif membuat database lewat migration
+
+Pada database kosong, jalankan `php artisan migrate --seed` sebagai pengganti langkah import SQL dan `php artisan db:seed`. Jangan menjalankan migration pada database yang sudah diimpor karena SQL sudah mencatat ketiga migration sebagai selesai.
+
+## Login admin contoh
+
+- Email: `admin@rentalin.test`
+- Password: `password`
+
+Akun dibuat oleh seeder. Ganti password setelah login pertama.
+
+## Catatan
+
+Laravel 6 merupakan versi lama. Branch ini ditujukan untuk kebutuhan kompatibilitas lokal/legacy PHP 7.2, bukan rekomendasi deployment publik jangka panjang.
