@@ -66,7 +66,7 @@
                 <p class="text-muted small mb-3">{{ $v->brand }}</p>
                 <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
                     <div><div class="price mb-0">Rp {{ number_format($v->price_per_day, 0, ",", ".") }}</div><small class="text-muted">/ hari</small></div>
-                    <a class="btn btn-primary btn-sm" href="{{ route('vehicles.show', $v->id) }}">Lihat detail</a>
+                    <a class="btn btn-primary btn-sm" href="{{ route('vehicle.show', $v->id) }}">Lihat detail</a>
                 </div>
             </div>
         </article>
